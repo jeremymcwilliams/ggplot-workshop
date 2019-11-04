@@ -1,0 +1,123 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Data Visualizations with ggplot workshop
+
+### Watzek Library Digital Initiatives
+### November 6th, 2019
+
+
+
+### Goals of this workshop:  
+
+* Load and filter datasets as needed
+* Learn the basic elements of ggplot
+* Gain experience making a variety of data visualizations
+
+
+Outline:  
+* load data
+* filter data (Janes over time)
+* create line plot
+* switch 
+
+
+
+
+### What is ggplot?
+
+ggplot is an R package created by Hadley Wickham (he's kind of a big deal in the R world). The "gg" translates to "grammar of graphics", and is founded in the idea that all data visualizations are comprised of three components:
+
+* data set
+* "geoms", or visual marks that represent the data
+* a coordinate system (e.g the type of plot)
+
+ggplot is part of the "tidyverse" - a seriese of packages that share common strategies for working with data and generating visualizations. In last Wednesday's workshop, we used some tidyverse packages (readr, dplyr) for reading and filtering datasets. Fortunately, there's a simple way to load all these libraries at once, as we'll use various functions spread throughout different packages in the tidyverse:
+
+```{r}
+library(tidyverse)
+```
+
+### Sample plots
+
+
+
+Load data set
+```{r}
+babyNames<-read_csv("babyNames.csv")
+
+babyNames
+```
+
+
+
+Let's say were interested in how the number of babies annually named Jane has changed over time. First we can use the "filter" function to get a subset of our data:
+```{r}
+
+jane<-filter(.data=babyNames, (Name=="John" & Sex=="Boys"))
+
+# print "jane" dataset
+jane
+
+```
+
+
+Ok, so our "jane" variable now just has the count of "Janes" over time. Let's do our first plot. 
+
+
+```{r}
+
+ggplot(data=jane, aes(x=Year, y=Count))+geom_line()
+
+
+```
+
+
+### Your Turn
+```{r}
+
+
+```
+
+
+
+
+Area!
+
+```{r}
+
+ggplot(data=jane, aes(x=Year, y=Count))+geom_area()
+
+```
+
+
+Labels!
+
+```{r}
+
+ggplot(data=jane, aes(x=Year, y=Count))+geom_area()+labs(y="number of Janes", x="Over Time", title="Janes over time")
+
+```
+
+```{r}
+
+colSums(Filter(is.numeric, babyNames))
+
+
+```
+
+
+
+
+
+(end)
+YOUR TURN:
+Make a graph of your choosing, maybe share w/class!
+```{r}
+
+
+
+```
+
