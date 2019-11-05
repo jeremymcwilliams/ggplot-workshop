@@ -7,8 +7,8 @@ output:
 
 # Data Visualizations with ggplot workshop
 
-### Watzek Library Digital Initiatives
-### November 6th, 2019
+#### Watzek Library Digital Initiatives
+#### November 6th, 2019
 
 
 
@@ -25,7 +25,7 @@ output:
 ggplot is an R package created by Hadley Wickham (he's kind of a big deal in the R world). The "gg" translates to "grammar of graphics", and is founded in the idea that all data visualizations are comprised of three components:
 
 * data set
-* "geoms", or visual marks that represent the data
+* "geoms", or visual marks that represent the data (i.e. the stuff that you see)
 * a coordinate system (e.g the type of plot)
 
 ggplot is part of the "tidyverse" - a series of packages that share common strategies for working with data and generating visualizations. In last Wednesday's workshop, we used some tidyverse packages (readr, dplyr) for reading and filtering datasets. Fortunately, there's a simple way to load all these libraries at once, as we'll use various functions spread throughout different packages in the tidyverse:
@@ -54,6 +54,7 @@ Load data set
 ```{r}
 babyNames<-read_csv("babyNames.csv")
 
+#prints babyNames
 babyNames
 ```
 
@@ -89,11 +90,8 @@ ggplot(data=jane, mapping=aes(x=Year, y=Count))+geom_line()
 ```
 
 
-### Your Turn
-
+YOUR TURN:
 First, create a dataset variable limited to just your name. Then, generate a line plot of your name. 
-
-
 ```{r}
 
 
@@ -110,8 +108,7 @@ Bonus! Can you find and plot a name for which the use is increasing over time?
 
 Area Plots!
 
-We can chnage our plot type 
-
+We can change our plot type:
 
 ```{r}
 
@@ -131,7 +128,7 @@ Create an area plot of your name over time
 
 ### Bells and Whistles
 
-You specify labels to add to your plot by using the "labs" function:
+You can specify labels to add to your plot by using the "labs()" function:
 
 ```{r}
 
@@ -180,7 +177,7 @@ averageChickens
 
 What is happening here? The "%>%" (or "pipe") operator sort of means "pass this on to the next thing". It's a handy R convention for chaining functions together.  
 
-The "summarise" (a.k.a. "summarize") function, when combined with "group_by", is good for adding new statistical metrics for the groups. 
+The "summarise" (a.k.a. "summarize") function, when combined with "group_by", is good for adding new statistical metrics for the groups. Like the function "mutate()", summarise creates a column - we're naming it "avg".
 
 Now we can take this data "averageChickens" and create a bar chart:
 
@@ -189,8 +186,8 @@ Now we can take this data "averageChickens" and create a bar chart:
 ggplot(data=averageChickens, mapping=aes(x=feed, y=avg))+geom_bar(stat="identity")
 
 # stat="identity" means "the y value is part of the dataset"
-# another common stat value is "count", where the height of the bar is based upon counting the data rows:
 
+# another common stat value is "count", where the height of the bar is based upon counting the data rows:
 # ggplot(data=chickwts, mapping=aes(x=feed))+geom_bar(stat="count")
 
 ```
