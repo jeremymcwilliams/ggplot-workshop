@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
 # Data Visualizations with ggplot workshop
@@ -17,11 +19,6 @@ output: html_notebook
 * Gain experience making a variety of data visualizations
 
 
-Outline:  
-* load data
-* filter data (Janes over time)
-* create line plot
-* switch 
 
 ### What is ggplot?
 
@@ -46,7 +43,7 @@ help(ggplot)
 ```
 
 ```{r}
-help(geom_bar)
+help(geom_jitter)
 ```
 
 As always, entering your question or error message into your favorite search engine is trypically a pretty effective way to get help. Chances are good that someone else has already encountered a ggplot problem you've encountered, and the answers are likely online.
@@ -65,7 +62,7 @@ babyNames
 Let's say were interested in how the number of female babies annually named Jane has changed over time. First we can use the "filter" function to get a subset of our data:
 ```{r}
 
-jane<-filter(.data=babyNames, (Name=="John" & Sex=="Girls"))
+jane<-filter(.data=babyNames, (Name=="Jane" & Sex=="Girls"))
 
 # print "jane" dataset
 jane
@@ -161,7 +158,6 @@ Can you add some labels and color to your area plot?
 
 
 
-
 ### More data filtering with the "pipe" operator and summarise()
 
 Let's take a look at a built-in dataset called "chickwts":
@@ -239,4 +235,44 @@ Make a graph of your choosing, maybe share w/class!
 
 
 ```
+
+
+
+
+### Saving your plot 
+
+To save your plot as a file, you can use the ggsave() function. ggsave will save the last plot generated:
+
+```{r}
+
+ggsave("plot.png", height=5, width=5)
+
+```
+
+From there, you can download your pot file, and use it however you choose.
+
+
+
+Parting Thoughts:
+
+* Learning any language takes persistence and effort. 
+* Pick a project or dataset relevant to your work, and try using it in R.
+* Need some local help? Reach out to us - digitalinitiatives@lclark.edu 
+
+
+Online tutorials:
+
+* http://www.codeschool.com/courses/try-r
+* http://www.datacamp.org
+* http://swirlstats.com/
+* http://r4ds.had.co.nz/  
+
+Getting help:
+
+* Documentation and tutorials: http://cran.r-project.org/other-docs.html
+* Recommended R packages by topic: http://cran.r-project.org/web/views/
+* Mailing list: https://stat.ethz.ch/mailman/listinfo/r-help
+* StackOverflow: http://stackoverflow.com/questions/tagged/r
+* Just google your question (e.g. "How do I do 'x' in R?")
+
 
