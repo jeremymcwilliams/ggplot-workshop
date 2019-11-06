@@ -25,8 +25,8 @@ output:
 ggplot is an R package created by Hadley Wickham (he's kind of a big deal in the R world). The "gg" translates to "grammar of graphics", and is founded in the idea that all data visualizations are comprised of three components:
 
 * data set
-* "geoms", or visual marks that represent the data (i.e. the stuff that you see)
-* a coordinate system (e.g the type of plot)
+* aesthetics, or visual marks that represent the data (i.e. the stuff that you see)
+* geometric objects, or "geoms" (e.g the type of plot)
 
 ggplot is part of the "tidyverse" - a series of packages that share common strategies for working with data and generating visualizations. In last Wednesday's workshop, we used some tidyverse packages (readr, dplyr) for reading and filtering datasets. Fortunately, there's a simple way to load all these libraries at once, as we'll use various functions spread throughout different packages in the tidyverse:
 
@@ -78,8 +78,8 @@ ggplot(data=jane, mapping=aes(x=Year, y=Count))+geom_line()
 Looking at the code, here's how we're including the three basic parts of a ggplot chart: 
 
 * DATA - data=jane  
-* GEOMS - mapping=aes(x=Year, y=Count)  
-* COORDINATE SYSTEM - +geom_line()
+* AESTHETICS - mapping=aes(x=Year, y=Count)  
+* GEOM - +geom_line()
 
 
 ```{r}
@@ -218,7 +218,7 @@ Suggested strategy:
 
 * Find/examine a dataset, and decide upon a useful plot from that data  
 * Filter your data to get a subset of the larger dataset (if applicable). Consider using group_by() with summarise() if you want to plot statistical metrics (mean, standard deviation, etc.)  
-* Create an intial plot with the three basic components (data, geoms, coordinate set).
+* Create an intial plot with the three basic components (data, aesthetics, geom).
 * Augment your plot by adding labels, colors, etc.
 
 
