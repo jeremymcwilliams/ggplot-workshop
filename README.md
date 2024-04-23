@@ -2,6 +2,7 @@
 Workshop 2 of fall 2019 workshop series.
 Link to this page: http://bit.ly/R-workshop2
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11048240.svg)](https://doi.org/10.5281/zenodo.11048240)
 ### For use with Lewis & Clark's RStudio Server
 
 * Visit <a href='https://datasci.watzek.cloud' target='_blank'>https://datasci.watzek.cloud</a>
